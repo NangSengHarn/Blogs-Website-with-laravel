@@ -1,0 +1,23 @@
+html {
+    scroll-padding-top: 70px;
+}
+.banner{
+    min-height: 90vh;
+    background: url(../images/banner.jpeg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.btn-primary{
+    background-color: rgb(250, 192, 104) !important;
+    border-color: rgb(250, 216, 164) !important;
+}
+.btn-primary:hover{
+    background-color: rgb(252, 188, 69) !important;
+}
+.btn-outline-primary{
+    border-color: rgb(252, 177, 65) !important;
+    color:rgb(241, 159, 36) !important;
+}
+.btn-outline-primary:hover{
+    background-color: rgb(250, 216, 164) !important;
+}
