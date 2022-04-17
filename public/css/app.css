@@ -1,9 +1,15 @@
 html {
     scroll-padding-top: 70px;
 }
-.banner{
+.bannerbg{
     min-height: 90vh;
-    background: url(../images/banner.jpeg) no-repeat;
+    background-image: url(../images/banner.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+.formbg{
+    min-height: 90vh;
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url(../images/banner.jpeg);
     background-size: cover;
     background-position: center;
 }
