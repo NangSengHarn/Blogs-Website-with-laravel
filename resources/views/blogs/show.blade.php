@@ -1,4 +1,4 @@
-<x-layout>
+<x-user-layout>
     <div class="container">
       <div class="row">
         <div class="col-md-6 mx-auto text-center">
@@ -121,5 +121,5 @@
           </div>
         </div>
   </section>
-</x-layout>
+</x-user-layout>
 

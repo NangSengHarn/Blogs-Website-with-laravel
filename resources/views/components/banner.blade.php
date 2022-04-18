@@ -3,7 +3,7 @@
         <div class="card-body text-center">
           <h3 class="card-title">Explore the nature</h3>
           <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi quibusdam voluptate rem deleniti sequi eius tenetur veniam laudantium recusandae quisquam.</p>
-          <a href="#posts" class="btn btn-primary">Go to blogs</a>
+          <a href="#posts" class="btn btn-primary">SignUp</a>
         </div>
     </div>
 </section>
