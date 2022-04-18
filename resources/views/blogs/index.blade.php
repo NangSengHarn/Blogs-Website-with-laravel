@@ -1,6 +1,6 @@
-<x-layout>
+<x-user-layout>
 
     <x-banner />
     <x-blogs-section />
     <x-subscribe />
-</x-layout>
+</x-user-layout>

@@ -17,10 +17,8 @@
 
 </head>
 <body>
-    <x-header />
     {{$slot}}
 
-    <x-footer />
     <!-- custom js file link  -->
     <script src="/js/index.js"></script>
 
