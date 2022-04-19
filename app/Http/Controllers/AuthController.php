@@ -10,7 +10,7 @@ class AuthController extends Controller
 {
     public function create()
     {
-        return view('auth.signUp');
+        return view('auth.register');
     }
     public function store()
     {
@@ -27,5 +27,33 @@ class AuthController extends Controller
         auth()->login($user);
         //redirect
         return redirect('/')->with('success','Welcome dear, '.$user->name);
+    }
+    public function login()
+    {
+        return view('auth.logIn');
+    }
+    public function post_login()
+    {
+        //validation
+        $formData=request()->validate([
+            'email'=>['required','email',Rule::exists('users','email')],
+            'password'=>['required','min:8']
+        ]);
+        //auth attempt
+        if(auth()->attempt($formData)){
+            //if user credentials correct -> redirect
+            if(auth()->user()->is_admin){
+                //if user is admin -> redirect admin dashboard
+                return redirect('/admin/blogs');
+            } else {
+                //if user is not admin -> redirect home
+                return redirect('/')->with('success','Welcome back');
+            }
+        }
+    }
+    public function logout()
+    {
+        auth()->logout();
+        return redirect('/')->with('success','Bye!');
     }
 }

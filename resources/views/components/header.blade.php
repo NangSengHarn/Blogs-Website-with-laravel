@@ -10,9 +10,28 @@
           <li class="nav-item">
               <a class="nav-link" href="#posts">Posts</a>
           </li>
+          @auth
+
           <li class="nav-item">
-            <a class="nav-link" href="">SignUp</a>
+            <a href="/" class="nav-link">
+              <img src="{{auth()->user()->avatar}}" alt="" width="30" height="30" class="rounded-circle">
+            </a>
           </li>
+          <li class="nav-item">
+            <form action="/logout" method="POST">
+              @csrf
+              <button
+              class="nav-link btn btn-link"
+              type="submit">
+              LogOut
+              </button>
+            </form>
+          </li>
+          @else
+          <li class="nav-item">
+            <a class="nav-link" href="/login">LogIn</a>
+          </li>
+          @endauth
           <li class="nav-item">
             <a class="nav-link" href="#subscribe">Subscribe</a>
           </li>

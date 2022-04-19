@@ -35,7 +35,7 @@
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
                 <div class="d-flex justify-content-center">
-                  <span>already have an account? | <a href="">SignIn</a></span>
+                  <span>already have an account? | <a href="/logIn">LogIn</a></span>
                 </div>
             </form>
         </div>
