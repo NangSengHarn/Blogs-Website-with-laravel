@@ -3,56 +3,33 @@
     <h4 class="text-center">Blog create form</h4>
         <form enctype="multipart/form-data" action="/admin/blogs/store" method="POST">
             @csrf
+            <x-form.input name='title'/>
+            <x-form.input name='slug'/>
             <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" name="title">
-                @error('title')
-                    <p class="text-danger">{{$message}}</p>
-                @enderror
+                <x-form.label name='body'/>
+                <textarea required name="body" id="body" name="body" cols="20" rows="10" class="form-control editor"></textarea>
+                <x-form.error name='body'/>
             </div>
-            <div class="mb-3">
-              <label for="slug" class="form-label">Slug</label>
-              <input type="text" class="form-control" id="slug" name="slug">
-              @error('slug')
-                    <p class="text-danger">{{$message}}</p>
-                @enderror
-            </div>
-            <div class="mb-3">
-                <label for="body" class="form-label">Body</label>
-                <textarea name="body" id="body" name="body" cols="20" rows="10" class="form-control editor"></textarea>
-                @error('body')
-                    <p class="text-danger">{{$message}}</p>
-                @enderror
-            </div>
-            <div class="mb-3">
-                <label for="thumbnail" class="form-label">Thumbnail</label>
-                <input type="file" class="form-control" id="thumbnail" name="thumbnail">
-            </div>
+            <x-form.input name='thumbnail' type='file' required=null/>
             <div class="mb-3">
                 <label for="category_id" class="form-label">Category</label>
                 <select name="category_id" id="category_id" class="form-control form-select">
-                    <option value="1">category1</option>
-                    <option value="2">category2</option>
-                    <option value="3">category3</option>
+                    @foreach (range(1,3) as $item)
+                    <option value="1">category</option>
+                    @endforeach
                 </select>
-                @error('category_id')
-                    <p class="text-danger">{{$message}}</p>
-                @enderror
+                <x-form.error name='category_id'/>
             </div>
             <div class="mb-3">
                 <label for="tag_id" class="form-label">Tag</label>
                 <select name="tag_id" id="tag_id" class="form-control form-select">
-                    <option value="1">tag1</option>
-                    <option value="2">tag2</option>
-                    <option value="3">tag3</option>
+                    @foreach (range(1,3) as $item)
+                    <option value="1">tag</option>
+                    @endforeach
                 </select>
-                @error('tag_id')
-                    <p class="text-danger">{{$message}}</p>
-                @enderror
+                <x-form.error name='tag_id'/>
             </div>
-            <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
+            <x-form.submit />
         </form>
     </div>
 </x-admin-layout>
