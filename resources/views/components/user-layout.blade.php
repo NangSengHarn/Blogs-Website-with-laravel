@@ -1,6 +1,6 @@
 <x-layout>
     <x-header />
-    {{$slot}}
+        {{$slot}}
 
     <x-footer />
 </x-layout>

@@ -17,6 +17,13 @@ class BlogController extends Controller
             'popularPosts'=>$this->randomBlogs(4)
         ]);
     }
+    public function show(Blog $blog)
+    {
+        return view('blogs.show',[
+            'blog'=>$blog,
+            'randomBlogs'=>$this->randomBlogs(3)
+        ]);
+    }
     public function randomBlogs($count)
     {
         return Blog::inRandomOrder()->take($count)->get();

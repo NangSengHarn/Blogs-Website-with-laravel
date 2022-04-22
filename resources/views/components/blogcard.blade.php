@@ -16,6 +16,6 @@
         @endforeach
       </div>
       <p class="card-text">{{substr($blog->body,0,35).'...';}}</p>
-      <a href="/{{$blog->slug}}/show" class="btn btn-primary">Read More</a>
+      <a href="/blogs/{{$blog->slug}}" class="btn btn-primary">Read More</a>
     </div>
 </x-card-wrapper>
