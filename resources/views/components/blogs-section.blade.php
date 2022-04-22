@@ -1,3 +1,4 @@
+@props(['blogs','categories','tags','popularPosts'])
 <section class="mt-3" id="posts">
 <div class="container-fluid px-5">
     <div class="row">
@@ -5,18 +6,18 @@
             <div class="text-center my-3"><h3>Blogs</h3></div>
             <div class="container py-2">
                 <div class="row">
-                    @foreach (range(1,6) as $item)
+                    @foreach ($blogs as $blog)
                     <div class="col-md-4 mb-4">
-                        <x-blogcard />
+                        <x-blogcard :blog=$blog/>
                     </div>
                     @endforeach
                 </div>
             </div>
         </div>
         <div class="col-3">
-            <x-categories />
-            <x-tags />
-            <x-popular-post />
+            <x-categories :categories=$categories/>
+            <x-tags :tags=$tags/>
+            <x-popular-post :popularPosts=$popularPosts/>
         </div>
     </div>
 </div>

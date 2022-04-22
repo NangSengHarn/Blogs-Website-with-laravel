@@ -5,6 +5,6 @@
         </div>
     @endif
     <x-banner />
-    <x-blogs-section />
+    <x-blogs-section :blogs=$blogs :categories=$categories :tags=$tags :popularPosts=$popularPosts/>
     <x-subscribe />
 </x-user-layout>

@@ -9,6 +9,7 @@ class Blog extends Model
 {
     use HasFactory;
     protected $guarded=['id'];
+    protected $with=['category','author','tags','comments'];
 
     public function author(){
         return $this->belongsTo(User::class,'user_id');
@@ -18,6 +19,9 @@ class Blog extends Model
     }
     public function tags(){
         return $this->belongsToMany(Tag::class,'blog_tag');
+    }
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
     public function likedUsers(){
         return $this->belongsToMany(User::class,'blog_user');
