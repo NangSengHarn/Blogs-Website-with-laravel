@@ -9,4 +9,17 @@ class Blog extends Model
 {
     use HasFactory;
     protected $guarded=['id'];
+
+    public function author(){
+        return $this->belongsTo(User::class,'user_id');
+    }
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+    public function tags(){
+        return $this->belongsToMany(Tag::class,'blog_tag');
+    }
+    public function likedUsers(){
+        return $this->belongsToMany(User::class,'blog_user');
+    }
 }
