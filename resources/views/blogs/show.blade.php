@@ -6,7 +6,7 @@
             <img src='{{asset("storage/$blog->thumbnail")}}' class="card-img-top" alt="...">
             @endif
             <div class="d-flex justify-content-between pt-2">
-                <div>Author - <a href="">{{$blog->author->name}}</a></div>
+                <div>Author - <a href="/?username={{$blog->author->username}}">{{$blog->author->name}}</a></div>
                 <div>
                     <a class="text-warning" href=""><i class="bi bi-heart h4"></i></a>
                 </div>
