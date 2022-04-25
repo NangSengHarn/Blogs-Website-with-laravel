@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container-fluid mx-3">
-      <a class="navbar-brand" href="#banner"><h3>im<span class="text-warning">B</span>logger</h3></a>
+      <a class="navbar-brand" href="/"><h3>im<span class="text-warning">B</span>logger</h3></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -36,9 +36,9 @@
             <a class="nav-link" href="#subscribe">Subscribe</a>
           </li>
         </ul>
-        <form class="d-flex ms-2">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-primary" type="submit">Search</button>
+        <form action="/#posts" class="d-flex ms-2">
+          <input class="form-control" name="search" type="search" value="{{request('search')}}" placeholder="Search" aria-label="Search">
+          <button class="btn btn-primary" type="submit"><a href="#posts"><i class="bi bi-search text-white"></i></a></button>
         </form>
       </div>
       </div>

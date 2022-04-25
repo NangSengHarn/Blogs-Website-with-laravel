@@ -26,4 +26,22 @@ class Blog extends Model
     public function likedUsers(){
         return $this->belongsToMany(User::class,'blog_user');
     }
+
+    public function scopeFilter($query,$filter){
+        $query->when($filter['search']??false,function($query,$search){
+            $query->where(function($query) use ($search){
+                $query->whereHas('category',function($query) use ($search){
+                        $query->where('slug',$search);
+                    })
+                    ->orWhereHas('tags',function($query) use ($search){
+                        $query->where('slug',$search);
+                    })
+                    ->orWhereHas('author',function($query) use ($search){
+                        $query->where('username',$search);
+                    })
+                    ->orWhere('title','LIKE','%'.$search.'%')
+                    ->orWhere('body','LIKE','%'.$search.'%');
+            });
+        });
+    }
 }

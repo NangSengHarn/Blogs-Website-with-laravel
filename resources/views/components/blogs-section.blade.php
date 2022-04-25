@@ -6,11 +6,13 @@
             <div class="text-center my-3"><h3>Blogs</h3></div>
             <div class="container py-2">
                 <div class="row">
-                    @foreach ($blogs as $blog)
+                    @forelse ($blogs as $blog)
                     <div class="col-md-4 mb-4">
                         <x-blogcard :blog=$blog/>
                     </div>
-                    @endforeach
+                    @empty
+                    <p class="text-center text-warning">No Blogs Found!</p>
+                    @endforelse
                 </div>
             </div>
         </div>
