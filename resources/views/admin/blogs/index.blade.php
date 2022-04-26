@@ -10,35 +10,10 @@
           </tr>
         </thead>
         <tbody>
-              <tr>
-                  <td>blog title</td>
-                  <td>intro</td>
-                  <td class="text-center"><a href="" class="btn btn-success">view</a></td>
-                  <td class="text-center"><a href="" class="btn btn-warning">Edit</a></td>
-                  <td class="text-center">
-                      <form action="" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                      </form>
-                  </td>
-              </tr>
-              <tr>
-                <td>blog title</td>
-                <td>intro</td>
-                <td class="text-center"><a href="" class="btn btn-success">view</a></td>
-                <td class="text-center"><a href="" class="btn btn-warning">Edit</a></td>
-                <td class="text-center">
-                    <form action="" method="POST">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
-            </tr>
+            @foreach ($blogs as $blog)
             <tr>
-                <td>blog title</td>
-                <td>intro</td>
+                <td>{{$blog->title}}</td>
+                <td>{{substr($blog->body,0,35).'...';}}</td>
                 <td class="text-center"><a href="" class="btn btn-success">view</a></td>
                 <td class="text-center"><a href="" class="btn btn-warning">Edit</a></td>
                 <td class="text-center">
@@ -49,6 +24,7 @@
                     </form>
                 </td>
             </tr>
+            @endforeach
         </tbody>
       </table>
     </div>

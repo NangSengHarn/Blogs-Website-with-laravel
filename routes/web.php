@@ -21,5 +21,6 @@ Route::post('/register', [AuthController::class,'store']);
 Route::get('/login', [AuthController::class,'login']);
 Route::post('/login', [AuthController::class,'post_login']);
 Route::post('/logout', [AuthController::class,'logout']);
+Route::get('/admin/blogs',[AdminBLogController::class,'index']);
 Route::get('/admin/blogs/create',[AdminBLogController::class,'create']);
 Route::post('/admin/blogs/store',[AdminBlogController::class,'store']);
