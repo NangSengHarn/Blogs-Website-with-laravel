@@ -1,6 +1,6 @@
 <section class="container">
     <div class="col-md-8 mx-auto">
-        <form action="" method="POST">
+        <form action="#comment" method="POST">
             @csrf
             <div class="mb-3">
                 <textarea

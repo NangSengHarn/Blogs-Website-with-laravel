@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <x-comment-section :comments="$blog->comments"/>
+    <x-comment-section :comments="$blog->comments()->latest()->get()"/>
     <x-blog-you-may-like :randomBlogs=$randomBlogs/>
 
 </x-user-layout>
