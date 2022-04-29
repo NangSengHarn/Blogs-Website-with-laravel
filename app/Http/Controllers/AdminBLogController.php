@@ -45,4 +45,9 @@ class AdminBLogController extends Controller
         return redirect('/admin/blogs');
 
     }
+    public function destroy(Blog $blog)
+    {
+        $blog->delete();
+        return back();
+    }
 }

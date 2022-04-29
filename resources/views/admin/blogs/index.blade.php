@@ -4,9 +4,9 @@
     <table class="table table-warning table-hover">
         <thead>
           <tr>
-            <th width="35%" scope="col">Title</th>
-            <th width="35%" scope="col">Intro</th>
-            <th width="30%" scope="col" colspan="3" class="text-center">Action</th>
+            <th width="40%" scope="col">Title</th>
+            <th width="40%" scope="col">Intro</th>
+            <th width="20%" scope="col" colspan="2" class="text-center">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -14,10 +14,9 @@
             <tr>
                 <td>{{$blog->title}}</td>
                 <td>{{substr($blog->body,0,35).'...';}}</td>
-                <td class="text-center"><a href="" class="btn btn-success">view</a></td>
                 <td class="text-center"><a href="" class="btn btn-warning">Edit</a></td>
                 <td class="text-center">
-                    <form action="" method="POST">
+                    <form action="/admin/blogs/{{$blog->slug}}/delete" method="POST">
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="btn btn-danger">Delete</button>
