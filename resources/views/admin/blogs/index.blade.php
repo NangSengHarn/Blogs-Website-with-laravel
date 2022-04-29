@@ -14,7 +14,7 @@
             <tr>
                 <td>{{$blog->title}}</td>
                 <td>{{substr($blog->body,0,35).'...';}}</td>
-                <td class="text-center"><a href="" class="btn btn-warning">Edit</a></td>
+                <td class="text-center"><a href="/admin/blogs/{{$blog->slug}}/edit" class="btn btn-warning">Edit</a></td>
                 <td class="text-center">
                     <form action="/admin/blogs/{{$blog->slug}}/delete" method="POST">
                       @csrf

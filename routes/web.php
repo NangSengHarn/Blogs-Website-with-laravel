@@ -27,3 +27,5 @@ Route::get('/admin/blogs',[AdminBLogController::class,'index']);
 Route::get('/admin/blogs/create',[AdminBLogController::class,'create']);
 Route::post('/admin/blogs/store',[AdminBlogController::class,'store']);
 Route::delete('/admin/blogs/{blog:slug}/delete',[AdminBLogController::class,'destroy']);
+Route::get('/admin/blogs/{blog:slug}/edit',[AdminBLogController::class,'edit']);
+Route::post('/admin/blogs/{blog:slug}/update',[AdminBLogController::class,'update']);

@@ -50,4 +50,32 @@ class AdminBLogController extends Controller
         $blog->delete();
         return back();
     }
+    public function edit(Blog $blog)
+    {
+        return view('admin.blogs.edit',[
+            'blog'=>$blog,
+            'categories'=>Category::all(),
+            'tags'=>Tag::all()
+        ]);
+    }
+    public function update(Blog $blog)
+    {
+        $formData=request()->validate([
+            "title"=>['required'],
+            "slug"=>['required',Rule::unique('blogs','slug')->ignore($blog->slug, 'slug')],
+            "body"=>['required'],
+            "category_id"=>['required'],
+            "tag_id"=>['required']
+        ]);
+        //add user_id to formData
+        $formData['user_id']=auth()->id();
+        //store thumbnail into thumbnails folder and add storage path to formData
+        if(request('thumbnail')){
+            $formData['thumbnail']=request()->file('thumbnail')->store('thumbnails');
+        }
+        //create blog
+        Blog::findOrFail($blog->id)->update($formData);
+        //redirect
+        return redirect('/admin/blogs');
+    }
 }

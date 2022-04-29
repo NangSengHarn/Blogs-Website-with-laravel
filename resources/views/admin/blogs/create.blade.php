@@ -15,7 +15,7 @@
                 <label for="category_id" class="form-label">Category</label>
                 <select name="category_id" id="category_id" class="form-control form-select">
                     @foreach ($categories as $category)
-                    <option value="{{$category->id}}">{{$category->name}}</option>
+                    <option {{$category->id==old('category_id') ? 'selected':''}} value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                 </select>
                 <x-form.error name='category_id'/>
@@ -24,7 +24,7 @@
                 <label for="tag_id" class="form-label">Tag</label>
                 <select name="tag_id" id="tag_id" class="form-control form-select">
                     @foreach ($tags as $tag)
-                    <option value="{{$tag->id}}">{{$tag->name}}</option>
+                    <option {{$tag->id==old('tag_id') ? 'selected':''}} value="{{$tag->id}}">{{$tag->name}}</option>
                     @endforeach
                 </select>
                 <x-form.error name='tag_id'/>
