@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -27,5 +28,14 @@ class BlogController extends Controller
     public function randomBlogs($count)
     {
         return Blog::inRandomOrder()->take($count)->get();
+    }
+    public function likeHandler(Blog $blog)
+    {
+        if(User::find(auth()->id())->isLiked($blog)){
+            $blog->unLike();
+        }else{
+            $blog->like();
+        }
+        return back();
     }
 }

@@ -49,4 +49,9 @@ class User extends Authenticatable
     public function likedBlogs(){
         return $this->belongsToMany(Blog::class,'blog_user');
     }
+
+    public function isLiked($blog)
+    {
+        return auth()->user()->likedBlogs && auth()->user()->likedBlogs->contains('id',$blog->id);
+    }
 }

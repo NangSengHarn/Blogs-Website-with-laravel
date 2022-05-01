@@ -60,4 +60,12 @@ class Blog extends Model
             });
         });
     }
+    public function like()
+    {
+        $this->likedUsers()->attach(auth()->id());
+    }
+    public function unLike()
+    {
+        $this->likedUsers()->detach(auth()->id());
+    }
 }

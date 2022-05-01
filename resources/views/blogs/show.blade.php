@@ -13,7 +13,16 @@
                         {{$blog->author->name}}
                 </a></div>
                 <div>
-                    <a class="text-warning" href=""><i class="bi bi-heart h4"></i></a>
+                    @auth
+                    <form action="/blogs/{{$blog->slug}}/likeunlike" method="POST">
+                    @csrf
+                    @if (auth()->user()->isLiked($blog))
+                        <button class="btn btn-link text-warning" type="submit"><i class="bi bi-heart-fill h4"></i></button>
+                    @else
+                        <button class="btn btn-link text-warning" type="submit"><i class="bi bi-heart h4"></i></button>
+                    @endif
+                    </form>
+                    @endauth
                 </div>
             </div>
             <div class="d-flex justify-content-between pt-2">
