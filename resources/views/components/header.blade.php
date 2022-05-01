@@ -13,6 +13,19 @@
               <a class="nav-link" href="#posts">Posts</a>
           </li>
           @auth
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-bell"></i>
+            </a>
+            <ul class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
+                @foreach (range(1,5) as $item)
+                <li><a class="dropdown-item text-wrap" href="#">
+                    <p class="text-wrap">$name commented on the post you like "post title".</p>
+                    <small>3 min ago</small>
+                </a></li>
+                @endforeach
+            </ul>
+          </li>
 
           <li class="nav-item">
             <a href="/" class="nav-link">
@@ -38,9 +51,11 @@
             <a class="nav-link" href="#subscribe">Subscribe</a>
           </li>
         </ul>
-        <form action="/#posts" class="d-flex ms-2">
-          <input class="form-control" name="search" type="search" value="{{request('search')}}" placeholder="Search" aria-label="Search">
-          <button class="btn btn-primary" type="submit"><a href="#posts"><i class="bi bi-search text-white"></i></a></button>
+        <form action="/#posts" class="d-flex ms-2 input-group">
+          <input class="form-control border-end-0 border" name="search" id="search" type="search" value="{{request('search')}}" placeholder="Search" aria-label="Search">
+          <span class="input-group-append">
+          <button class="btn btn-link border-start-0 border ms-n5" id="search" type="submit"><i class="bi bi-search"></i></button>
+          </span>
         </form>
       </div>
       </div>

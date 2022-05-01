@@ -35,3 +35,16 @@ html {
     border: 1px solid rgb(250, 192, 104);
     background-color: rgb(250, 192, 104);
 }
+ul.dropdown-menu > li{
+    width: 300px !important;
+}
+.scrollable-menu {
+    height: auto;
+    max-height: 300px;
+    overflow-x: hidden;
+}
+#search:focus {border-color:rgb(255, 253, 253)!important;
+    -webkit-box-shadow: none!important;
+        -moz-box-shadow: none!important;
+        box-shadow: none!important;
+    }
