@@ -54,4 +54,12 @@ class User extends Authenticatable
     {
         return auth()->user()->likedBlogs && auth()->user()->likedBlogs->contains('id',$blog->id);
     }
+    public function subscribe()
+    {
+        $this->update(['is_subscribe'=>1]);
+    }
+    public function unSubscribe()
+    {
+        $this->update(['is_subscribe'=>0]);
+    }
 }
