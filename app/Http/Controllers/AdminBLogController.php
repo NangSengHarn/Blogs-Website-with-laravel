@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SubscriberMail;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 
 class AdminBLogController extends Controller
@@ -40,7 +43,12 @@ class AdminBLogController extends Controller
             $formData['thumbnail']=request()->file('thumbnail')->store('thumbnails');
         }
         //create blog
-        Blog::create($formData);
+        $blog=Blog::create($formData);
+        //mail to subscribers
+        $subscribers=User::all()->filter(fn ($subscriber) => $subscriber->id!=auth()->id()&&$subscriber->is_subscribe==1 );
+        $subscribers->each(function ($subscriber) use ($blog) {
+            Mail::to($subscriber->email)->send(new SubscriberMail($blog));
+        });
         //redirect
         return redirect('/admin/blogs');
 
