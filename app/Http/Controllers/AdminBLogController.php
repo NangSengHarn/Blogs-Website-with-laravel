@@ -47,7 +47,7 @@ class AdminBLogController extends Controller
         //mail to subscribers
         $subscribers=User::all()->filter(fn ($subscriber) => $subscriber->id!=auth()->id()&&$subscriber->is_subscribe==1 );
         $subscribers->each(function ($subscriber) use ($blog) {
-            Mail::to($subscriber->email)->send(new SubscriberMail($blog));
+            Mail::to($subscriber->email)->queue(new SubscriberMail($blog));
         });
         //redirect
         return redirect('/admin/blogs');
