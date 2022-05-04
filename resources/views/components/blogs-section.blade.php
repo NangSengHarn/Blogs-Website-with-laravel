@@ -13,6 +13,7 @@
                     @empty
                     <p class="text-center text-warning">No Blogs Found!</p>
                     @endforelse
+                    {{$blogs->links()}}
                 </div>
             </div>
         </div>
