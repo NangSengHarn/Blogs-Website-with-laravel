@@ -1,4 +1,5 @@
 <section class="container-fluid fixed-top">
+    {{-- @dd(auth()->user()->notifications); --}}
   <div class="row">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid mx-3">
@@ -18,10 +19,11 @@
               <i class="bi bi-bell"></i>
             </a>
             <ul class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
-                @foreach (range(1,5) as $item)
-                <li><a class="dropdown-item text-wrap" href="#">
-                    <p class="text-wrap">$name commented on the post you like "post title".</p>
-                    <small>3 min ago</small>
+                @foreach (auth()->user()->notifications as $notification)
+                {{-- @dd($notification->data); --}}
+                <li><a class="dropdown-item text-wrap" href="/blogs/{{$notification->data['blog_slug']}}/#comment">
+                    <p class="text-wrap">{{$notification->data['user']}} commented on the post you like "{{$notification->data['blog_title']}}".</p>
+                    <small>{{$notification->data['created_at']}}</small>
                 </a></li>
                 @endforeach
             </ul>
