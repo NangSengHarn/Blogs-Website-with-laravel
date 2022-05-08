@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Comment;
-use App\Notifications\newComment;
+use App\Notifications\CommentNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 
@@ -21,7 +21,7 @@ class CommentController extends Controller
         ]);
         $likeUsers=$blog->likedUsers->filter( fn ($likeUser) => $likeUser->id!=auth()->id() );
         $likeUsers->each(function ($likeUser) use ($comment) {
-            Notification::sendNow($likeUser, new newComment($comment));
+            Notification::sendNow($likeUser, new CommentNotification($comment));
         });
         return back();
     }

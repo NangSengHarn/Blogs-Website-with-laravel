@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminBLogController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CommentNotificationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,7 @@ Route::get('/blogs/{blog:slug}',[BlogController::class,'show']);
 Route::post('/blogs/{blog:slug}',[CommentController::class,'store']);
 Route::post('/blogs/{blog:slug}/likeunlike',[BlogController::class,'likeHandler']);
 Route::post('/{user}/subscribe',[UserController::class,'subscriptionHandler']);
+Route::get('/notifications/{id}',[CommentNotificationController::class,'show']);
 
 Route::get('/register', [AuthController::class,'create'])->middleware('guest');
 Route::post('/register', [AuthController::class,'store'])->middleware('guest');

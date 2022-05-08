@@ -48,3 +48,6 @@ ul.dropdown-menu > li{
         -moz-box-shadow: none!important;
         box-shadow: none!important;
     }
+.bg-gray {
+    background-color: #e2e2e2 !important;
+}

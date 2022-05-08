@@ -21,10 +21,18 @@
             <ul class="dropdown-menu scrollable-menu" aria-labelledby="navbarDropdown">
                 @foreach (auth()->user()->notifications as $notification)
                 {{-- @dd($notification->data); --}}
-                <li><a class="dropdown-item text-wrap" href="/blogs/{{$notification->data['blog_slug']}}/#comment">
+                <li>
+                    @if ($notification->read_at)
+                    <div class="mb-2 mt-0 mx-2">
+                    @else
+                    <div class="mb-2 mt-0 mx-2 bg-gray">
+                    @endif
+                    <a class="dropdown-item text-wrap" href="/notifications/{{$notification->id}}">
                     <p class="text-wrap">{{$notification->data['user']}} commented on the post you like "{{$notification->data['blog_title']}}".</p>
-                    <small>{{$notification->data['created_at']}}</small>
-                </a></li>
+                    <small>{{$notification->created_at->diffForHumans()}}</small>
+                    </a>
+                    </div>
+                </li>
                 @endforeach
             </ul>
           </li>

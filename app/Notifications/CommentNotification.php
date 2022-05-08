@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class newComment extends Notification
+class CommentNotification extends Notification
 {
     use Queueable;
     public $comment;
@@ -58,8 +58,7 @@ class newComment extends Notification
             'user'=>$this->comment->user->name,
             'blog_title'=>$this->comment->blog->title,
             'blog_slug'=>$this->comment->blog->slug,
-            'body'=>$this->comment->body,
-            'created_at'=>$this->comment->created_at
+            'body'=>$this->comment->body
         ];
     }
 }
