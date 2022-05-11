@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>imBlogger</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="/css/app.css">
@@ -19,7 +20,18 @@
 
     <!-- custom js file link  -->
     <script src="/js/index.js"></script>
-
+    <!-- jquery link  -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+    <script>
+    $(function () {
+        $(".select-tags").select2({
+            placeholder: "Enter tags",
+            tags: true,
+            tokenSeparators: [',']
+        });
+    });
+    </script>
     <!-- bootstrap js link  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

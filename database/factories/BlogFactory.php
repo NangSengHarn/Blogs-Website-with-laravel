@@ -19,7 +19,6 @@ class BlogFactory extends Factory
         return [
             'user_id'=>User::factory(),
             'category_id'=>Category::factory(),
-            'tag_id'=>Tag::factory(),
             'title'=>$this->faker->sentence(),
             'slug'=>$this->faker->unique()->slug(),
             'body'=>$this->faker->paragraph()
