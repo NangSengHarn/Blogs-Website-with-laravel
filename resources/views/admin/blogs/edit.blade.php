@@ -7,7 +7,7 @@
             <x-form.input name='slug' :value="$blog->slug"/>
             <div class="mb-3">
                 <x-form.label name='body'/>
-                <textarea required name="body" id="body" placeholder="{{$blog->body}}" cols="20" rows="10" class="form-control editor"></textarea>
+                <textarea required name="body" id="body" cols="20" rows="10" class="form-control editor">{{$blog->body}}</textarea>
                 <x-form.error name='body'/>
             </div>
             <x-form.input-wrapper>
@@ -21,22 +21,23 @@
                 <x-form.error name="thumbnail"/>
             </x-form.input-wrapper>
             <div class="mb-3">
-                <label for="category_id" class="form-label">Category</label>
-                <select name="category_id" id="category_id" class="form-control form-select">
+                <label for="category" class="form-label">Category</label>
+                <select name="category" id="category" class="form-control select-tags">
                     @foreach ($categories as $category)
-                    <option {{$category->id==$blog->category_id ? 'selected':''}} value="{{$category->id}}">{{$category->name}}</option>
+                    <option {{$blog->category_id==$category->id ? 'selected':''}} value="{{$category->name}}">{{$category->name}}</option>
                     @endforeach
                 </select>
-                <x-form.error name='category_id'/>
+                <x-form.error name='category'/>
             </div>
             <div class="mb-3">
-                <label for="tag_id" class="form-label">Tag</label>
-                <select name="tag_id" id="tag_id" class="form-control form-select">
+                <label for="tag" class="form-label">Tag</label>
+                <select class="form-control select2 select-tags" name="tag[]" id="tags" multiple>
+
                     @foreach ($tags as $tag)
-                    <option {{$tag->id==$blog->tag_id ? 'selected':''}} value="{{$tag->id}}">{{$tag->name}}</option>
+                    <option {{ $blog->tags->contains($tag) ? 'selected':'' }} value="{{$tag->name}}">{{$tag->name}}</option>
                     @endforeach
                 </select>
-                <x-form.error name='tag_id'/>
+                <x-form.error name='tag'/>
             </div>
             <x-form.submit />
         </form>

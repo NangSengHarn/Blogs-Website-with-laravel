@@ -7,27 +7,27 @@
             <x-form.input name='slug'/>
             <div class="mb-3">
                 <x-form.label name='body'/>
-                <textarea required name="body" id="body" name="body" cols="20" rows="10" class="form-control editor"></textarea>
+                <textarea required name="body" id="body" name="body" cols="20" rows="10" class="form-control editor">{{old('body')}}</textarea>
                 <x-form.error name='body'/>
             </div>
             <x-form.input name='thumbnail' type='file' required=null/>
             <div class="mb-3">
-                <label for="category_id" class="form-label">Category</label>
-                <select name="category" id="category_id" class="form-control select-tags">
+                <label for="category" class="form-label">Category</label>
+                <select name="category" id="category" class="form-control select-tags">
                     @foreach ($categories as $category)
-                    <option {{$category->id==old('category_id') ? 'selected':''}} value="{{$category->name}}">{{$category->name}}</option>
+                    <option {{$category->name==old('category') ? 'selected':''}} value="{{$category->name}}">{{$category->name}}</option>
                     @endforeach
                 </select>
-                <x-form.error name='category_id'/>
+                <x-form.error name='category'/>
             </div>
             <div class="mb-3">
-                <label for="tag_id" class="form-label">Tag</label>
+                <label for="tag" class="form-label">Tag</label>
                 <select class="form-control select2 select-tags" name="tag[]" id="tags" multiple>
                     @foreach ($tags as $tag)
-                    <option {{$tag->id==old('tag_id') ? 'selected':''}} value="{{$tag->name}}">{{$tag->name}}</option>
+                    <option {{collect(old('tag'))->contains($tag->name) ? 'selected':''}} value="{{$tag->name}}">{{$tag->name}}</option>
                     @endforeach
                 </select>
-                <x-form.error name='tag_id'/>
+                <x-form.error name='tag'/>
             </div>
             <x-form.submit />
         </form>

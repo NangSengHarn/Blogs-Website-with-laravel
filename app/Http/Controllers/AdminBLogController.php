@@ -88,9 +88,7 @@ class AdminBLogController extends Controller
         $formData=request()->validate([
             "title"=>['required'],
             "slug"=>['required',Rule::unique('blogs','slug')->ignore($blog->slug, 'slug')],
-            "body"=>['required'],
-            "category_id"=>['required'],
-            "tag_id"=>['required']
+            "body"=>['required']
         ]);
         //add user_id to formData
         $formData['user_id']=auth()->id();
@@ -98,8 +96,25 @@ class AdminBLogController extends Controller
         if(request('thumbnail')){
             $formData['thumbnail']=request()->file('thumbnail')->store('thumbnails');
         }
+        $categoryName=request('category');
+        $category=Category::firstOrCreate(['name'=>$categoryName,'slug'=>Str::slug($categoryName)]);
+        $formData['category_id']=$category->id;
         //create blog
         Blog::findOrFail($blog->id)->update($formData);
+        $tags = request('tag');
+        $tagId = [];
+        if (!empty($tags)) {
+          foreach ($tags as $tagName)
+          {
+              $tag = Tag::firstOrCreate(['name'=>$tagName, 'slug'=>Str::slug($tagName)]);
+              if($tag)
+              {
+                  $tagId[] = $tag->id;
+              }
+          }
+          $blog->tags()->detach();
+          $blog->tags()->syncWithoutDetaching($tagId);
+        }
         //redirect
         return redirect('/admin/blogs');
     }
