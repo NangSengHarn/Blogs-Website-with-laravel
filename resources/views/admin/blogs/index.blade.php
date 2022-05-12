@@ -13,7 +13,7 @@
             @foreach ($blogs as $blog)
             <tr>
                 <td>{{$blog->title}}</td>
-                <td>{{substr($blog->body,0,35).'...';}}</td>
+                <td>{{substr(strip_tags($blog->body),0,35).'...';}}</td>
                 <td class="text-center"><a href="/admin/blogs/{{$blog->slug}}/edit" class="btn btn-warning">Edit</a></td>
                 <td class="text-center">
                     <form action="/admin/blogs/{{$blog->slug}}/delete" method="POST">

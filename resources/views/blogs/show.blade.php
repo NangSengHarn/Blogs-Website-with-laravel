@@ -46,7 +46,7 @@
             </div>
             <h3 class="my-3">{{$blog->title}}</h3>
             <p class="lh-md mt-3">
-                {{$blog->body}}
+                {!!$blog->body!!}
             </p>
             </div>
         </div>

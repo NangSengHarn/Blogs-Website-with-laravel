@@ -7,7 +7,7 @@
             <x-form.input name='slug'/>
             <div class="mb-3">
                 <x-form.label name='body'/>
-                <textarea required name="body" id="body" name="body" cols="20" rows="10" class="form-control editor">{{old('body')}}</textarea>
+                <textarea name="body" id="body" name="body" cols="20" rows="10" class="form-control editor">{{old('body')}}</textarea>
                 <x-form.error name='body'/>
             </div>
             <x-form.input name='thumbnail' type='file' required=null/>

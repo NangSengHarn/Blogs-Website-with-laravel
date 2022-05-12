@@ -20,7 +20,7 @@
         <a href="/?tag={{$tag->slug}}"><span class="badge bg-warning">{{$tag->name}}</span></a>
         @endforeach
       </div>
-      <p class="card-text">{{substr($blog->body,0,35).'...';}}</p>
+      <p class="card-text">{{substr(strip_tags($blog->body),0,35).'...';}}</p>
       <a href="/blogs/{{$blog->slug}}" class="btn btn-primary">Read More</a>
     </div>
 </x-card-wrapper>
