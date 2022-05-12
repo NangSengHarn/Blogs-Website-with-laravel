@@ -31,6 +31,26 @@
             tokenSeparators: [',']
         });
     });
+    $(function(){
+        $('#upload').change(function(){
+          var input = this;
+          var url = $(this).val();
+          var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+          if (input.files && input.files[0]&& (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg"))
+           {
+              var reader = new FileReader();
+
+              reader.onload = function (e) {
+                 $('#img').attr('src', e.target.result);
+              }
+             reader.readAsDataURL(input.files[0]);
+          }
+          else
+          {
+            $('#img').attr('src', '/assets/no_preview.png');
+          }
+        });
+    });
     </script>
     <!-- bootstrap js link  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

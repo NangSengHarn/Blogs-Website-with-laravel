@@ -51,3 +51,14 @@ ul.dropdown-menu > li{
 .bg-gray {
     background-color: #e2e2e2 !important;
 }
+.avatarupdate a {
+    position: relative;
+    overflow: hidden;
+}
+.avatarupdate a input {
+  position: absolute;
+  font-size: 50px;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}

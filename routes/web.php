@@ -25,6 +25,8 @@ Route::get('/notifications/{id}',[CommentNotificationController::class,'show']);
 
 Route::get('/register', [AuthController::class,'create'])->middleware('guest');
 Route::post('/register', [AuthController::class,'store'])->middleware('guest');
+Route::get('/updateProfile', [AuthController::class,'edit'])->middleware('auth');
+Route::post('/updateProfile', [AuthController::class,'update'])->middleware('auth');
 Route::get('/login', [AuthController::class,'login'])->middleware('guest');
 Route::post('/login', [AuthController::class,'post_login'])->middleware('guest');
 Route::post('/logout', [AuthController::class,'logout'])->middleware('auth');

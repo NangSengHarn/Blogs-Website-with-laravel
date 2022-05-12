@@ -38,7 +38,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="/" class="nav-link">
+            <a href="/updateProfile" class="nav-link">
               <img src="{{auth()->user()->avatar}}" alt="" width="30" height="30" class="rounded-circle">
             </a>
           </li>

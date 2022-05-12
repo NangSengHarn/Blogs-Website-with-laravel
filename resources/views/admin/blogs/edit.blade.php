@@ -13,11 +13,11 @@
             <x-form.input-wrapper>
                 <x-form.label name="thumbnail"/>
                 @if ($blog->thumbnail)
-                <div class="d-flex justify-content-center">
-                    <img src='{{asset("storage/$blog->thumbnail")}}' class="img-thumbnail" width="400px" height="300px">
+                <div class="d-flex justify-content-center mb-3">
+                    <img src='{{asset("storage/$blog->thumbnail")}}' class="img-thumbnail" id="img" width="400px" height="300px">
                 </div>
                 @endif
-                <input type="file" class="form-control" id="thumbnail" name="thumbnail" value="{{old('thumbnail')}}">
+                <input type="file" class="form-control" id="upload" name="thumbnail" value="{{old('thumbnail')}}">
                 <x-form.error name="thumbnail"/>
             </x-form.input-wrapper>
             <div class="mb-3">

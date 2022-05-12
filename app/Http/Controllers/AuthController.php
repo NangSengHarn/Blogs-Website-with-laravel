@@ -28,6 +28,10 @@ class AuthController extends Controller
         //redirect
         return redirect('/')->with('success','Welcome dear, '.$user->name);
     }
+    public function edit()
+    {
+        return view('auth.update');
+    }
     public function login()
     {
         return view('auth.logIn');
