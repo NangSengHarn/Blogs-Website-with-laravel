@@ -7,7 +7,7 @@
                 <div class="row py-4">
                     <div class="col-4  d-flex justify-content-center">
                         <div class="avatarupdate">
-                        <img src="{{ request()->input('avatar')?? auth()->user()->avatar}} " class="rounded-circle d-block" id="img" alt="..." width="200" height="200">
+                        <img src="{{asset('storage/'.auth()->user()->avatar)}}" class="rounded-circle d-block" id="img" alt="..." width="200" height="200">
                         <a href="" class="file btn mt-3 d-block text-center">Change profile photo <input type="file" name="avatar" id="upload"></a>
                         </div>
                     </div>

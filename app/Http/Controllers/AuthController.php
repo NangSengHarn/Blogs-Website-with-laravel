@@ -30,7 +30,24 @@ class AuthController extends Controller
     }
     public function edit()
     {
-        return view('auth.update');
+        return view('auth.edit');
+    }
+    public function update()
+    {
+        $user=auth()->user();
+        //validation
+        $formData=request()->validate([
+            'name'=>['required','min:3'],
+            'username'=>['required','min:3',Rule::unique('users','username')->ignore($user->username, 'username')],
+            'email'=>['required','email',Rule::unique('users','email')->ignore($user->email, 'email')]
+        ]);
+        if(request('avatar')){
+            $formData['avatar']=request()->file('avatar')->store('avatars');
+        }
+        //update users
+        User::findOrFail($user->id)->update($formData);
+        //redirect
+        return redirect('/')->with('success','Update success, '.$user->name);
     }
     public function login()
     {

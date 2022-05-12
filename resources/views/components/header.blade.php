@@ -1,5 +1,4 @@
 <section class="container-fluid fixed-top">
-    {{-- @dd(auth()->user()->notifications); --}}
   <div class="row">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid mx-3">
@@ -38,8 +37,8 @@
           </li>
 
           <li class="nav-item">
-            <a href="/updateProfile" class="nav-link">
-              <img src="{{auth()->user()->avatar}}" alt="" width="30" height="30" class="rounded-circle">
+            <a href="/editProfile" class="nav-link">
+              <img src="{{asset('storage/'.auth()->user()->avatar)}}" alt="" width="30" height="30" class="rounded-circle">
             </a>
           </li>
           <li class="nav-item">

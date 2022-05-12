@@ -2,7 +2,7 @@
 <x-card-wrapper>
     <div class="d-flex">
         <div>
-            <img src="{{$comment->user->avatar}}"
+            <img src="{{asset('storage/'.$comment->user->avatar)}}"
                  width="50"
                  height="50"
                  class="rounded-circle"
