@@ -1,4 +1,4 @@
-<section class="bannerbg d-flex justify-content-center" style="padding-top: 70px;" id="banner">
+<section class="bannerbg d-flex justify-content-center" id="banner">
 
     <div class="card p-3 rounded-3 shadow-sm align-self-center" style="width: 30rem;">
         <div class="card-body text-center">

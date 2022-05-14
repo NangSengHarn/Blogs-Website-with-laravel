@@ -1,6 +1,7 @@
 <x-layout>
     <x-header />
-        {{$slot}}
-
+    <section  style="padding-top: 70px;">
+    {{$slot}}
+    </section>
     <x-footer />
 </x-layout>
